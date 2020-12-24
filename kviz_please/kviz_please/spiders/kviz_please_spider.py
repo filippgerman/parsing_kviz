@@ -13,7 +13,8 @@ def format_row(row):
 class KvizPlease(scrapy.Spider):
     name = "kviz_please"
     start_urls = [
-        'https://quizplease.ru/rating?QpRaitingSearch%5Bgeneral%5D=1&QpRaitingSearch%5Bleague%5D=1&QpRaitingSearch%5Btext%5D=']
+        'https://quizium.ru/ajaxrating?search_team=&season=all&city=7&json=1&offset=0'
+    ]
 
     def parse(self, response):
 
@@ -28,13 +29,16 @@ class KvizPlease(scrapy.Spider):
 
             # Добавление в объект
             Item = SquizItem()
-            Item['name'] = name[1]
-            Item['number_game'] = int(number_game[1])
-            Item['points'] = float(points)
+            try:
+                Item['name'] = name[1]
+                Item['number_game'] = int(number_game[1])
+                Item['points'] = float(points)
+            except (KeyError, ValueError):
+                Item['number_game'] = 0
+            finally:
+                yield Item
 
-            yield Item
-
+            #Пагинация
             for href in response.css('ul.pagination > li.next > a::attr("href")'):
                 if url := response.urljoin(href.extract()):
                     yield scrapy.Request(url, callback=self.parse)
-
