@@ -7,8 +7,8 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-FEED_FORMAT = 'json'
-FEED_URI = 'result.json'
+# FEED_FORMAT = 'json'
+# FEED_URI = 'result.json'
 
 BOT_NAME = 'squiz'
 

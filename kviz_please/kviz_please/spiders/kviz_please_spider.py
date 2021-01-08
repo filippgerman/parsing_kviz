@@ -13,7 +13,7 @@ def format_row(row):
 class KvizPlease(scrapy.Spider):
     name = "kviz_please"
     start_urls = [
-        'https://quizium.ru/ajaxrating?search_team=&season=all&city=7&json=1&offset=0'
+        'https://quizplease.ru/rating?QpRaitingSearch%5Bgeneral%5D=1&QpRaitingSearch%5Bleague%5D=1&QpRaitingSearch%5Btext%5D='
     ]
 
     def parse(self, response):

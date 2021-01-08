@@ -10,7 +10,7 @@ def format_number(number):
 
 
 class Squiz(scrapy.Spider):
-    name = 'Squiz'
+    name = 'squiz'
     start_urls = ['https://squiz.ru/results/overall']
 
     def parse(self, response):
@@ -20,6 +20,7 @@ class Squiz(scrapy.Spider):
             data.append(i.split('\n'))
 
         for i in data[0]:
+            # print(f"{i.split(';')[3]} {int(i.split(';')[4])} {format_number(i.split(';')[5])}")
             Item = SquizItem()
             Item['name'] = i.split(';')[3]
             Item['number_game'] = int(i.split(';')[4])

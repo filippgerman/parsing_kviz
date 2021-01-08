@@ -35,12 +35,12 @@ class Kviz(object):
 
     def __init__(self):
         basename = 'data_scraped'
-        self.engine = create_engine("mysql://root:fil@localhost/pars", encoding="utf8")
+        self.engine = create_engine("mysql://fil:fil@localhost/pars", encoding="utf8")
         Base.metadata.create_all(self.engine)
 
     def process_item(self, item, spider):
         # Проверка нет ли уже такой команды
-        if data := self.session.query(Data).filter(Data.name == item['name']).count():
+        if self.session.query(Data).filter(Data.name == item['name']).count():
             self.session.query(Data).filter(Data.name == item['name']). \
                 update({Data.number_game: item['number_game'], Data.points: item['points']}, synchronize_session=False)
 

@@ -8,5 +8,7 @@ import scrapy
 
 class MozgvaItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    name = scrapy.Field()
+    number_game = scrapy.Field()
+    points = scrapy.Field()
+

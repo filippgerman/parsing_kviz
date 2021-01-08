@@ -35,7 +35,7 @@ class SquizPipeline:
 
     def __init__(self):
         basename = 'data_scraped'
-        self.engine = create_engine("mysql://root:fil@localhost/pars", encoding="utf8")
+        self.engine = create_engine("mysql://fil:fil@localhost/pars", encoding="utf8")
         Base.metadata.create_all(self.engine)
 
     def process_item(self, item, spider):
