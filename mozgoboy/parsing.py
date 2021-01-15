@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from database import *
+from fomat import remove_spaces
 
 
 def get_html(url):
@@ -35,6 +36,8 @@ def insert_in_database(url):
         games = int(tr.find('td', class_='games').get_text())
         points = float(tr.find('td', class_='points').get_text())
 
+        name = remove_spaces(name)  # убирает лищние пробелы
+
         if session.query(Data).filter(Data.name == name).count():
             session.query(Data).filter(Data.name == name).update(
                 {Data.number_game: games, Data.points: points},
@@ -59,4 +62,5 @@ def parsing(url):
         url = f"http://mozgoboy.ru/ajax?action=get/rating&city=5&offset={offset}&season=all&league=1&search_team_name=&_=1610204052611"
 
 
-parsing(f"http://mozgoboy.ru/ajax?action=get/rating&city=5&offset=0&season=all&league=1&search_team_name=&_=1610204052611")
+parsing(
+    f"http://mozgoboy.ru/ajax?action=get/rating&city=5&offset=0&season=all&league=1&search_team_name=&_=1610204052611")

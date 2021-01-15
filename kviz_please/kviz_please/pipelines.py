@@ -18,10 +18,10 @@ Base = declarative_base()
 
 
 class Data(Base):
-    __tablename__ = 'Kviz_please'
+    __tablename__ = 'Квиз плиз'
 
     id = Column(BIGINT, primary_key=True, autoincrement=True)
-    name = Column(String(100, collation='utf8mb4_unicode_ci'), index=True)
+    name = Column(String(1000, collation='utf8mb4_unicode_ci'), index=True)
     number_game = Column(Integer)
     points = Column(FLOAT)
 
@@ -35,7 +35,7 @@ class Kviz(object):
 
     def __init__(self):
         basename = 'data_scraped'
-        self.engine = create_engine("mysql://fil:fil@localhost/pars", encoding="utf8")
+        self.engine = create_engine("mysql://huston:fil@localhost/pars", encoding="utf8")
         Base.metadata.create_all(self.engine)
 
     def process_item(self, item, spider):

@@ -1,0 +1,23 @@
+#Парсинг Эни
+cd ~/PycharmProjects/parsing_kviz/einstein
+python parsing.py
+
+#Квиз-плиз
+cd ~/PycharmProjects/parsing_kviz/kviz_please
+scrapy crawl kviz_please
+
+# Квизиум
+cd ~/PycharmProjects/parsing_kviz/kvizium
+python parsing.py
+
+# Мозгобой
+cd ~/PycharmProjects/parsing_kviz/mozgoboy
+python parsing.py
+
+# Мозгва
+cd ~/PycharmProjects/parsing_kviz/mozgva
+scrapy crawl mozgva
+
+# Сквиз
+cd ~/PycharmProjects/parsing_kviz/squiz
+scrapy crawl squiz

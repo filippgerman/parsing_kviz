@@ -1,5 +1,6 @@
 import scrapy
 from ..items import MozgvaItem
+from fomat import remove_spaces
 
 
 class Mozgva(scrapy.Spider):
@@ -20,7 +21,7 @@ class Mozgva(scrapy.Spider):
 
                 Item = MozgvaItem()
 
-                Item['name'] = str(i.css('td.tName a::text').get())  # название команды
+                Item['name'] = remove_spaces(str(i.css('td.tName a::text').get()))  # название команды
                 Item['number_game'] = int(response.xpath(f'//*[@id="{id}"]/td[4]/text()').get())  # количество игр
                 Item['points'] = float(i.css('td.tScores::text').get())  # кол-во очков
 

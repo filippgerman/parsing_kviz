@@ -11,7 +11,7 @@ Session = sessionmaker(bind=engine)
 
 
 class Data(Base):
-    __tablename__ = 'mozgoboy'
+    __tablename__ = 'BrainBoy'
 
     id = Column(BIGINT, primary_key=True, autoincrement=True)
     name = Column(String(1000, collation='utf8mb4_unicode_ci'), index=True)

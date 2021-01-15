@@ -1,6 +1,7 @@
 import scrapy
-from ..items import SquizItem
 
+from fomat import remove_spaces
+from ..items import SquizItem
 
 def format_row(row):
     result = ""
@@ -30,7 +31,7 @@ class KvizPlease(scrapy.Spider):
             # Добавление в объект
             Item = SquizItem()
             try:
-                Item['name'] = name[1]
+                Item['name'] = remove_spaces(name[1])
                 Item['number_game'] = int(number_game[1])
                 Item['points'] = float(points)
             except (KeyError, ValueError):

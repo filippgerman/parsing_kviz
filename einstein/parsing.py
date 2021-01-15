@@ -1,5 +1,6 @@
 import requests
 from database import *
+from fomat import remove_spaces
 
 data = {
     'params[rows]': 0,
@@ -27,7 +28,8 @@ def parsing(resp):
                 synchronize_session=False)
             # Добавление записи
         else:
-            session.add(Data(row.get('team'), row.get('count'), row.get('sum')))
+            team_name = remove_spaces(row.get('team'))
+            session.add(Data(team_name, row.get('count'), row.get('sum')))
 
         print(f"команда {row.get('team')} кол-во игр: {row.get('count')} сумма очков {row.get('sum')}")
         session.commit()
@@ -40,5 +42,3 @@ while True:
         break
     else:
         data['params[rows]'] += 10
-
-

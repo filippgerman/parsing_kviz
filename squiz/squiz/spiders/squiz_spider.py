@@ -1,5 +1,6 @@
 import scrapy
 from ..items import SquizItem
+from fomat import remove_spaces
 
 
 def format_number(number):
@@ -22,7 +23,7 @@ class Squiz(scrapy.Spider):
         for i in data[0]:
             # print(f"{i.split(';')[3]} {int(i.split(';')[4])} {format_number(i.split(';')[5])}")
             Item = SquizItem()
-            Item['name'] = i.split(';')[3]
+            Item['name'] = remove_spaces(i.split(';')[3])
             Item['number_game'] = int(i.split(';')[4])
             Item['points'] = format_number(i.split(';')[5])
 

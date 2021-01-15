@@ -1,5 +1,6 @@
 import requests
 from database import *
+from fomat import remove_spaces
 
 
 def get_html(url):
@@ -22,7 +23,8 @@ while True:
                     synchronize_session=False)
                 # Добавление записи
             else:
-                session.add(Data(row.get('team_name'), row.get('all_games'), row.get('points_alltime')))
+                team_name = remove_spaces(row.get('team_name'))
+                session.add(Data(team_name, row.get('all_games'), row.get('points_alltime')))
 
             print(
                 f"Название: {row.get('team_name')} Все мигры:{row.get('all_games')} Очков в игре {row.get('points_alltime')}")
