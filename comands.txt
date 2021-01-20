@@ -7,8 +7,8 @@ cd ~/PycharmProjects/parsing_kviz/kviz_please
 scrapy crawl kviz_please
 
 # Квизиум
-cd ~/PycharmProjects/parsing_kviz/kvizium
-python parsing.py
+~/PycharmProjects/parsing_kviz/kvizium_pars
+scrapy crawl kvizium
 
 # Мозгобой
 cd ~/PycharmProjects/parsing_kviz/mozgoboy
