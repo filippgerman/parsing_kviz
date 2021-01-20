@@ -17,7 +17,7 @@ class KvizPlease(scrapy.Spider):
         'https://quizplease.ru/rating?QpRaitingSearch%5Bgeneral%5D=1&QpRaitingSearch%5Bleague%5D=1&QpRaitingSearch%5Btext%5D='
     ]
 
-    def parse(self, response):
+    def parse(self, response, **kwargs):
 
         for div in response.css('.item'):
             # получение данных о команде
