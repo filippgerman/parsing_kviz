@@ -1,13 +1,13 @@
 #Парсинг Эни
-cd ~/PycharmProjects/parsing_kviz/einstein
-python parsing.py
+cd ~/PycharmProjects/parsing_kviz/eni
+scrapy crawl eni
 
 #Квиз-плиз
 cd ~/PycharmProjects/parsing_kviz/kviz_please
 scrapy crawl kviz_please
 
 # Квизиум
-~/PycharmProjects/parsing_kviz/kvizium_pars
+cd ~/PycharmProjects/parsing_kviz/kvizium_pars
 scrapy crawl kvizium
 
 # Мозгобой

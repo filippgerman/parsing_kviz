@@ -39,14 +39,14 @@ class KvizPlease(scrapy.Spider):
         yield FormRequest(url='https://albertparty.ru/api/get_new_rows', method='POST', formdata=self.get_data())
 
     def parse(self, response, **kwargs):
-        eni_item = EniItem()
+        item = EniItem()
         for i in response.json()['data']['table']:
             if i.get('team'):
-                eni_item['name'] = remove_spaces(i.get('team'))
-                eni_item['number_game'] = int(i.get('count'))
-                eni_item['points'] = float(format_row(i.get('sum')))
+                item['name'] = remove_spaces(i.get('team'))
+                item['number_game'] = int(i.get('count'))
+                item['points'] = float(format_row(i.get('sum')))
 
-                yield eni_item
+                yield item
             else:
                 self.check = False
 
