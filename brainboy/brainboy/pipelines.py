@@ -20,7 +20,7 @@ class Data(Base):
     __tablename__ = 'BrainBoy'
 
     id = Column(BIGINT, primary_key=True, autoincrement=True)
-    name = Column(String(1000, collation='utf8mb4_unicode_ci'), index=True)
+    name = Column(String(600, collation='utf8mb4_unicode_ci'), index=True)
     number_game = Column(Integer)
     points = Column(FLOAT)
 
@@ -51,4 +51,3 @@ class BrainboyPipeline(object):
     def close_spider(self, spider):
         self.session.commit()
         self.session.close()
-

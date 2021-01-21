@@ -1,7 +1,7 @@
 import scrapy
 
 from fomat import remove_spaces
-from ..items import SquizItem
+from kviz_please.items import SquizItem
 
 def format_row(row):
     result = ""

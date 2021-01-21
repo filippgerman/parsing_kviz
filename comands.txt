@@ -1,3 +1,7 @@
+
+Перед парсингом необходимо установить:
+sudo apt install python3-scrapy
+
 #Парсинг Эни
 cd ~/PycharmProjects/parsing_kviz/eni
 scrapy crawl eni
@@ -11,8 +15,8 @@ cd ~/PycharmProjects/parsing_kviz/kvizium_pars
 scrapy crawl kvizium
 
 # Мозгобой
-cd ~/PycharmProjects/parsing_kviz/mozgoboy
-python parsing.py
+cd ~/PycharmProjects/parsing_kviz/brainboy
+scrapy crawl brainboy
 
 # Мозгва
 cd ~/PycharmProjects/parsing_kviz/mozgva

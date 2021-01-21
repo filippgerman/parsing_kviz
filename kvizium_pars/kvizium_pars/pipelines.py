@@ -20,7 +20,7 @@ class KviziumDb(Base):
     __tablename__ = 'Квизиум'
 
     id = Column(BIGINT, primary_key=True, autoincrement=True)
-    name = Column(String(1000, collation='utf8mb4_unicode_ci'), index=True)
+    name = Column(String(600, collation='utf8mb4_unicode_ci'), index=True)
     number_game = Column(Integer)
     points = Column(FLOAT)
 
