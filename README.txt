@@ -1,27 +1,9 @@
+Программа, парсит данные с 6 разных квизов (Эйнштейн пати, Мозгобой, Квиз-плиз, Квизиум, Мозгва, Сквиз)
+Каждый паук для квиза находится в одноименной директории.
 
-Перед парсингом необходимо установить:
-sudo apt install python3-scrapy
-
-#Парсинг Эни
-cd ~/PycharmProjects/parsing_kviz/eni
-scrapy crawl eni
-
-#Квиз-плиз
-cd ~/PycharmProjects/parsing_kviz/kviz_please
-scrapy crawl kviz_please
-
-# Квизиум
-cd ~/PycharmProjects/parsing_kviz/kvizium_pars
-scrapy crawl kvizium
-
-# Мозгобой
-cd ~/PycharmProjects/parsing_kviz/brainboy
-scrapy crawl brainboy
-
-# Мозгва
-cd ~/PycharmProjects/parsing_kviz/mozgva
-scrapy crawl mozgva
-
-# Сквиз
-cd ~/PycharmProjects/parsing_kviz/squiz
-scrapy crawl squiz
+файл run_parsing.py запускает все 6 пауков, для парсинга данных и записи их в БД.
+при запуске вышеуказанного скрипта из терминала необходимы след. действия:
+1. Перейти в директорию с проектом, в данном случаем, она называется parsing_kviz
+2. Далее выполнить команду: source venv/bin/activate (активировать venv из терминала).
+3. запустить скрипт: python3 run_parsing.py
+4. Все данные будут записаны в бд под названием pars

@@ -30,7 +30,7 @@ class KviziumDb(Base):
         self.points = points
 
 
-class KviziumParsPipeline(object):
+class KviziumPipeline(object):
 
     def __init__(self):
         basename = 'data_scraped'
@@ -52,3 +52,5 @@ class KviziumParsPipeline(object):
     def close_spider(self, spider):
         self.session.commit()
         self.session.close()
+
+

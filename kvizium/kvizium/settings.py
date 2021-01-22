@@ -1,4 +1,4 @@
-# Scrapy settings for kvizium_pars project
+# Scrapy settings for kvizium project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'kvizium_pars'
+BOT_NAME = 'kvizium'
 
-SPIDER_MODULES = ['kvizium_pars.spiders']
-NEWSPIDER_MODULE = 'kvizium_pars.spiders'
+SPIDER_MODULES = ['kvizium.spiders']
+NEWSPIDER_MODULE = 'kvizium.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'kvizium_pars (+http://www.yourdomain.com)'
+#USER_AGENT = 'kvizium (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'kvizium_pars.middlewares.KviziumParsSpiderMiddleware': 543,
+#    'kvizium.middlewares.KviziumSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'kvizium_pars.middlewares.KviziumParsDownloaderMiddleware': 543,
+#    'kvizium.middlewares.KviziumDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'kvizium_pars.pipelines.KviziumParsPipeline': 300,
+   'kvizium.pipelines.KviziumPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
