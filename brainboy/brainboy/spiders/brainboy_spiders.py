@@ -1,8 +1,7 @@
 import scrapy
 from scrapy.http import Request
 from bs4 import BeautifulSoup
-from scrapy.crawler import CrawlerProcess
-from brainboy.brainboy.items import BrainboyItem
+from ..items import BrainboyItem
 
 
 def format_name(name):
@@ -51,7 +50,3 @@ class Mozgoboy(scrapy.Spider):
                 self.offset += 20
                 yield Request(url=self.get_url(), headers=self.headers, callback=self.parse)
 
-
-process = CrawlerProcess()
-process.crawl(Mozgoboy)
-process.start()

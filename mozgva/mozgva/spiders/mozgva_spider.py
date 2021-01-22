@@ -35,8 +35,8 @@ class Mozgva(scrapy.Spider):
                 yield item
 
         # пагинация
-        # if links := response.css('span.next a::attr(href)').getall():  # проверка есть ли ссылки на след. страницу
-        #     self.number_page += 1  # номер страницы
-        #     url = response.urljoin(
-        #         f'https://mozgva.com/rating?pretendents_page={self.number_page}&top_page={self.number_page}')
-        #     yield scrapy.Request(url, callback=self.parse)
+        if links := response.css('span.next a::attr(href)').getall():  # проверка есть ли ссылки на след. страницу
+            self.number_page += 1  # номер страницы
+            url = response.urljoin(
+                f'https://mozgva.com/rating?pretendents_page={self.number_page}&top_page={self.number_page}')
+            yield scrapy.Request(url, callback=self.parse)

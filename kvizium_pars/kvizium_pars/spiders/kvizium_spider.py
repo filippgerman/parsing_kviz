@@ -28,8 +28,6 @@ class Kvizium(scrapy.Spider):
                     kviz_item['number_game'] = 0
                 finally:
                     yield kviz_item
-                print(
-                    f"Название: {row.get('team_name')} Все мигры:{row.get('all_games')} Очков в игре {row.get('points_alltime')}")
 
             self.number += 10
             yield scrapy.Request(

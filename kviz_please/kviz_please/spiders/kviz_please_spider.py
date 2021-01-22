@@ -1,7 +1,14 @@
 import scrapy
+from ..items import SquizItem
 
-from fomat import remove_spaces
-from kviz_please.items import SquizItem
+
+def remove_spaces(name):
+    """
+    :param name: str название команды
+    :return: str название команды без пробелов в строке
+    """
+    return ' '.join(name.split())
+
 
 def format_row(row):
     result = ""
@@ -29,17 +36,17 @@ class KvizPlease(scrapy.Spider):
             points = format_row(points)
 
             # Добавление в объект
-            Item = SquizItem()
+            item = SquizItem()
             try:
-                Item['name'] = remove_spaces(name[1])
-                Item['number_game'] = int(number_game[1])
-                Item['points'] = float(points)
+                item['name'] = remove_spaces(name[1])
+                item['number_game'] = int(number_game[1])
+                item['points'] = float(points)
             except (KeyError, ValueError):
-                Item['number_game'] = 0
+                item['number_game'] = 0
             finally:
-                yield Item
+                yield item
 
-            #Пагинация
+            # Пагинация
             for href in response.css('ul.pagination > li.next > a::attr("href")'):
                 if url := response.urljoin(href.extract()):
                     yield scrapy.Request(url, callback=self.parse)
