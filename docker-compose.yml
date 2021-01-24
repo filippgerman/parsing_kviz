@@ -1,0 +1,26 @@
+version: "3.5"
+services:
+  db:
+    image: mysql:latest
+    volumes:
+      - ./db_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: fil
+      MYSQL_DATABASE: doc
+      MYSQL_USER: fil
+      MYSQL_PASSWORD: fil
+  python-test:
+    image: python:3
+    build: .
+    depends_on:
+      - db
+  chat-bot:
+    image: python:3
+    build: ../chatbotEni
+    depends_on:
+      - python-test
+
+volumes:
+  db_data:

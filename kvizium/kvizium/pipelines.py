@@ -34,7 +34,7 @@ class KviziumPipeline(object):
 
     def __init__(self):
         basename = 'data_scraped'
-        self.engine = create_engine("mysql://huston:fil@localhost/pars", encoding="utf8")
+        self.engine = create_engine("mysql://fil:fil@db/doc", encoding="utf8")
         Base.metadata.create_all(self.engine)
         self.session = Session(bind=self.engine)
 

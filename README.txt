@@ -10,3 +10,20 @@
 
 
 Либо запустить командой: sh run.sh
+Данный скрипт, запускает парсера, необходимо указать корректный путь до бд,
+в файлах pipelines.py к каждому проекту.
+путь к старой БД "mysql://huston:fil@localhost/pars"
+
+Докер:
+    запуск только python приложения:
+        сборка:
+            docker build -t parser .
+        запуск:
+            docker run --rm {код собранного приложения}
+    Запуск докер компоса вместе с БД вместе с БД:
+        сборка:
+            docker-compose build
+        Запуск:
+            docker-compose up
+        Подсключиться к бд:
+            docker exec -it 740d1923d92d mysql -ufil -p
