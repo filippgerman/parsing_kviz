@@ -17,7 +17,7 @@ Base = declarative_base()
 
 
 class KviziumDb(Base):
-    __tablename__ = 'Квизиум'
+    __tablename__ = 'Kvizium'
 
     id = Column(BIGINT, primary_key=True, autoincrement=True)
     name = Column(String(600, collation='utf8mb4_unicode_ci'), index=True)

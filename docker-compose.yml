@@ -11,16 +11,17 @@ services:
       MYSQL_DATABASE: doc
       MYSQL_USER: fil
       MYSQL_PASSWORD: fil
+    networks:
+      - netdatabase
+
   python-test:
     image: python:3
     build: .
     depends_on:
       - db
-  chat-bot:
-    image: python:3
-    build: ../chatbotEni
-    depends_on:
-      - python-test
-
 volumes:
   db_data:
+
+networks:
+   netdatabase:
+       driver: bridge

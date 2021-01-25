@@ -20,7 +20,7 @@ Base = declarative_base()
 
 
 class Data(Base):
-    __tablename__ = 'Мозгва'
+    __tablename__ = 'Mozgva'
 
     id = Column(BIGINT, primary_key=True, autoincrement=True)
     name = Column(String(600, collation='utf8mb4_unicode_ci'), index=True)

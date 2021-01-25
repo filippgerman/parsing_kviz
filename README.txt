@@ -27,3 +27,5 @@
             docker-compose up
         Подсключиться к бд:
             docker exec -it 740d1923d92d mysql -ufil -p
+
+
