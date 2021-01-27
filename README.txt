@@ -20,6 +20,8 @@
             docker build -t parser .
         запуск:
             docker run --rm {код собранного приложения}
+
+
     Запуск докер компоса вместе с БД вместе с БД:
         сборка:
             docker-compose build
@@ -27,5 +29,6 @@
             docker-compose up
         Подсключиться к бд:
             docker exec -it 740d1923d92d mysql -ufil -p
-
+        Пересобрать:
+            docker-compose up -d --no-deps --build nginx
 

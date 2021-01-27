@@ -6,6 +6,7 @@ services:
       - ./db_data:/var/lib/mysql
     ports:
       - "3307:3306"
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: fil
       MYSQL_DATABASE: doc
@@ -17,8 +18,11 @@ services:
   python-test:
     image: python:3
     build: .
+    restart: always
     depends_on:
       - db
+    networks:
+      - netdatabase
 volumes:
   db_data:
 
